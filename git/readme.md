@@ -11,3 +11,6 @@
 ## git 配置
  - git config --global user.name "你的名字"
  - git config --global user.email "你的邮箱"
+
+ - new.txt
+  添加文件后是未被跟踪-> 暂存-> 提交
