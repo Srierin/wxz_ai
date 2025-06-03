@@ -12,7 +12,7 @@
 // 返回值的类型是字符串 
 function add (a,b){
     if(typeof a !== 'number' || typeof b !== 'number'||isNaN(a)||isNaN(b)){
-        throw new Error('a 和 b 必须是zhen数字');
+        throw new Error('a 和 b 必须是正确数字');
     }
     //参数的校验
     return a+b;

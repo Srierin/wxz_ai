@@ -6,3 +6,4 @@ console.log(Number(undefined));// NaN
 console.log(NaN===NaN);// false Not a Number 的方式有很多种
 console.log(isNaN(NaN));// true
 console.log(typeof NaN);
+console.log(isNaN("abd"));// false
