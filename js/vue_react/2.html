@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container" id="app">
-    <h1>ECUT 未来之星</h1>
+    <h1>{{title}}</h1>
     <table id="friends" class="table table-scriped">
      <thead>
        <tr>
@@ -35,6 +35,7 @@
       // 申明数据的业务
       data(){
         return{
+          title: 'ECUT 未来之星',
           friends: [
             {
         "name": "王子恒",

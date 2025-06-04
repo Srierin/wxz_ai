@@ -42,10 +42,10 @@
     #app 是 这里面支持Vue app 接管
     不用低级的DOM API
     - 循环输出数据
-        - vue App 中提供了
-
-
-
+        - vue App 中提供了data(){
+          friends
+        }
+        - tr v-for 配合循环输出业务
 
 ## react 来自于FaceBook 适合大型应用。
 - 创建react 应用 
