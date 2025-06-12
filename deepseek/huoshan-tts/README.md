@@ -7,3 +7,20 @@
   .gitignore 哪些文件不用提交到远程 仓库也不进入
   node_modules/   依赖包不用上传 太大了 没有必要提交 
   
+
+- 环境变量
+  .env.local 本地环境变量  . 开头 本地项目需要的key
+  添加到。gitingore 里面  不提交到远程仓库
+
+
+- 单向数据流
+  input value {prompt}
+  保持数据状态和界面的统一
+  UI = f(state)  state 驱动界面 
+  onChange 修改  监听用户输入
+
+
+- base64 格式
+  
+
+
