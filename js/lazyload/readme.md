@@ -29,3 +29,13 @@
   自定义属性 data-xxx 数据属性
   图片的原地址是img 数据属性
   original 原来的
+- 性能问题
+  - 解决了性能问题 首屏幕加载速度 (静态页面的渲染性能)
+  - onScroll 滚动事件 触发太过频繁 (JS 执行性能)
+  - forEach imgs 
+  - getBoundingClientRect() 元素的位置信息 相对视口的位置信息 触发回流
+- 防抖 节流
+- IntersectionObserver 观察器
+  - observer 观察 异步的，不是同步的 浏览器的后台 
+  - intersection rect 和可视区的交叉
+  - 不再需要onScroll 事件  不需要节流
