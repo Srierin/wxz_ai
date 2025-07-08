@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #menu {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      padding: 20px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div id="toggleBtn">Toggle Menu</div>
+  <div id="menu">
+    <p>Menu Context</p>
+    <a href="http://www.baidu.com" id="closeInside">Don't closed</a>
+  </div>
+  <script>
+    const toggleBtn = document.getElementById('toggleBtn');
+    const menu = document.getElementById('menu');
+    const closeInside = document.getElementById('closeInside');
+
+    toggleBtn.addEventListener('click',function (e){
+      e.stopPropagation();
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    })
+
+    document.addEventListener('click',function (){
+      menu.style.display = 'none';
+    })
+
+    menu.addEventListener('click',function (e){
+      e.stopPropagation();// 阻止事件冒泡 不触发父元素的事件处理程序 使得在菜单框中点击不会关闭菜单框
+    })
+
+    closeInside.addEventListener('click',function (e){
+      e.preventDefault();// 阻止默认行为 不跳转 不关闭 不刷新 不提交表单 不执行任何操作 不执行任何事件处理程序
+      e.stopPropagation();// 阻止事件冒泡 不触发父元素的事件处理程序
+      alert('Menu button is clicked')
+    })
+  </script>
+</body>
+</html>

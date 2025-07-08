@@ -21,25 +21,32 @@
 </head>
 
 <body>
-  <div id="parent">
-    <div id="child"></div>
+  <div id="grandparent">
+    <div id="parent">
+      <div id="child"></div>
+    </div>
   </div>
+
   <script>
     // html ,css,js 各司其职
     // 不太建议 行内样式要少用
     // js 事件也不要用 DOM0 把html js 耦合在一起
     // DOM0 和DOM2 混用，不好维护
     // 统一用 addEventlistener 具有 useCapture 能力
+    document.getElementById('grandparent').addEventListener('click', function (event) {
+      console.log('祖父元素Grandparent clicked (capture)');
+      
+    }, false);
     document.getElementById('parent')
       .addEventListener('click', function (event) {
-        console.log(event.target,'/////');
+        console.log(event.target, '/////');
         console.log('父元素clicked')
 
-      },false);
+      }, true);
     document.getElementById('child')
       .addEventListener('click', function (event) {
         console.log('子元素clicked')
-      },false)
+      }, false)
   </script>
 </body>
 

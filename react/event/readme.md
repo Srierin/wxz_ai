@@ -25,4 +25,38 @@
        事件让他在冒泡阶段执行
        可以控制他在哪个阶段执行
 
+## 事件委托优势 delegation 
+- 性能优化
+   - 极致可以将事件委托给最外层的元素
+   react 是用来做大型项目开发 会有很多的事件 所以很有必要
+   给我们的事件节点event.target 添加一个唯一属性 
+- 动态节点事件 
+   滚动到底部，一次性新增很多新元素 
+   事件委托可以有效解决
+- 同一元素同一事件注册多次
+    - DOM节点
+    - event type
+    - 监听器(回调函数)  会放到event loop 队列中
+       event 对象  
+    - useCapture 
+
+    - event.preventDefault() 阻止默认行为
+       form subimt
+       a 
+    - event.stopPropagation() 阻止冒泡
+
+- 用户交互的便利体验问题
+   - toggle按钮
+   - 点击页面任何空白地方可以关闭  方便 stopPropagation
+   - 显示区域可以交互， stopPropagation.    
+
+- SyntheticEvent 合成事件
+     - 委托 #root
+         性能优化框架帮我们做，
+     - 事件池  Event pooling
+         事件对象的回收利用
+         大型密集交互的应用
+     - 最近的版本中又可以安全使用了
+
+
   
