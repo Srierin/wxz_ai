@@ -61,4 +61,61 @@
     react 坚持 单向绑定 
 
     
-        
+- 本地存储
+    - localStorage html5
+       key：value 存储
+       setItem(key,value)
+       getItem(key)
+       removeItem(key)
+       clear()
+    
+    - BOM Browser Object Model 浏览器对象模型
+    - DOM Document Object Model 文档对象模型
+- 本地存储
+     - localStorage 和 cookie 有什么异同
+     - http 无状态，head cookie 带上
+     - 如果cookie（4kb左右） 太大 会影响http 性能 
+     - cookie 前端后端的可以设置
+        可以设置过期时间
+        domain 域名 
+       localStorage 只在浏览器端
+         domain 域名
+         5MB 左右
+     - IndexDB 本地数据库 GB 级别的
+
+
+## 自定义hooks
+    - 自己定义的
+    - use 开头
+    - 具有某一项功能
+        简单函数的封装
+        响应式的状态
+        effect
+        todos 
+
+- 自定义hooks
+    - 现代react app 的架构的一部分
+    - hooks目录
+        为什么还要自定义hooks 
+        因为框架只能做common 部分
+        业务定制 ahooks 
+    - use 开头
+        可以把 state、effect 等逻辑封装复用
+    - return 
+        todos
+        toggle
+        addTodos
+        deleteTodos
+        这也是函数式编程思想的体现
+    - 组件可以更好得聚焦于模板渲染和交互
+    - 全面hooks 拥抱函数式编程 
+
+
+- 两个可以优化的地方
+     - ../../ 路径太麻烦了
+         用vite 配置alias 别名
+     - toggle 、delete 跨越组件层级过多，
+         useContext 解决
+
+
+
