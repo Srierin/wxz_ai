@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>私有属性和类的封装</title>
+</head>
+
+<body>
+  <script>
+    function Book(title, author, year) {
+      // 对内 私有
+      // 对外 公开 
+      let _title = title; // 以‘_‘开头的变量 是私有的 有利于可读性的编程风格
+      let _author = author;
+      let _year = year;
+      this.getTitle = function () {
+        return _title;
+      }
+      // 私有
+      function getFullInfo() {
+        return `${_title} by ${_author}`;
+      }
+
+      this.getFullInfo = function () {
+        return `${getFullInfo()},published in ${_year}`;
+      }
+
+      this.getAuthor = function () {
+        return _author;
+      }
+      this.getYear = function () {
+        return _year;
+      }
+      // 类的开发者，和类的使用者，可能是不同的人
+      this.updateYear = function (newYear) {
+        if (typeof newYear === 'number' && newYear > 0) {
+            _year = newYear;
+        }else{
+            console.error('Invalid year');
+        }
+      }
+    }
+
+
+    let book = new Book("JavaScript", "zs", 2020);
+    console.log(book._title);
+    console.log(book.getTitle());
+    console.log(book.getFullInfo());
+    // book._year = '2025'; 错误的
+    book.updateYear(2025);
+    console.log(book.getYear());
+
+  </script>
+</body>
+
+</html>
