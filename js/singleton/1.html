@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设计模式之单例模式</title>
+</head>
+<body>
+  <script>
+    /*
+     * Storage 本地存储类 
+     * 单例模式 getInstance 静态方法
+     * @func getItem(key) 获取本地存储的值
+     * @func setItem(key,value) 设置本地存储的值
+     */
+    // 函数+ prototype 可以完成类的构建 原型式的 
+    // js 的原型式的 灵活 优雅 
+    // 面向对象的不用学 
+    // JAVA ，C++ 不能理解
+    // 在es6 中为了拥抱更多开发者 企业级大型项目开发
+    // 如何让class 只会实例化一次
+    // 用全局变量
+    class Storage{
+      static instance;
+      constructor(){
+        console.log(this,'////')
+      }
+      // 静态方法
+      static getInstance(){
+          // 返回一个实例 
+          // 如果没有实例 就创建一个实例 
+          // 有实例 就返回实例
+          // 静态属性
+          // es6 class 语法糖
+          // Storage 对象 instance
+          if(!Storage.instance){
+            Storage.instance = new Storage();
+          }
+          return Storage.instance;
+      }
+      getItem(key){
+        return localStorage.getItem(key);
+      }
+      setItem(key,value){
+          
+      }
+    }
+    // 单例 性能好 
+    // 不能new 因为这会产生新的对象 但是如何能拿到对象实例呢？
+    // 静态方法 属于类的方法 可以不用实例化
+    // public private 属于实例的方法
+    const storage1 =  Storage.getInstance();
+    const storage2 =  Storage.getInstance();
+    // 都是引用
+    // es6 class语法糖 构建类 本质还是原型式的
+    // 如何变成true 让storage1 === storage2 成立
+    console.log(storage1 === storage2,'//');
+    storage1.setItem('name','zhangsan');
+    console.log(storage2.getItem('name'));
+  </script>
+</body>
+</html>
