@@ -16,3 +16,14 @@ setItem(key,value) getItem(key) removeItem clear。
 - static getInstance 方法判断 instance 返回这个实例
   实例的时候一定要这样 
 - 性能特别好，好管理
+
+## 单例模式
+
+- 实现一个登录弹窗
+     - 体验
+     不用跳转路由，盖在页面上
+     - 性能
+     90%的用户都没有登录
+     在一个登录界面Model html css js 比较多
+     推迟到第一次用的时候再加载 单例
+     要可以复用
