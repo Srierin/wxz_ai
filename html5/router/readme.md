@@ -49,4 +49,32 @@ hash
     不会刷新页面
 - 会触发一个事件
     hashChange
+
+## 基于SPA
+- url 可以改变，但是不会刷新页面 不会向后端发送请求 这是前端路由
+    - hash + hashChange 事件+ DOM
+    - history + pushState/popState 
+- 前端路由react-router-dom 会匹配 页面级别组件
+    进行热更新 在Route 或者Outlet
+- 单页应用 
+    只有一个页面 但可以实现多个页面的效果 有多个url 路由状态
+    有很多页面级别组件
+    window.location window.history
+    运用了栈
+
+
+- history
+    很早前就有了 可以在浏览器历史记录里游走
+    - html5 赋予history 新的功能
+    - hash + hashChange 有优点，但是有很大的缺点
+       好处 兼容性好
+       缺点 hash 不好理解  有#  不好看
+       要让他和传统后端路由一样
+       http://127.0.0.1:63743/about 关于
+    - 如何解决 
+      html5 升级了 history api 来实现
+
+
+
+
   
