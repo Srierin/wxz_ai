@@ -1,7 +1,7 @@
 # 受控组件和非受控组件
 
 - 聚焦于表单 收集用户的数据
-     - 表现为受staet控制
+     - 表现为受state控制
      value={state} onChange={e => setState(e.target.value)}
      性能开销 表单的检测等，防抖节流
      - 非受控

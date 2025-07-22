@@ -21,22 +21,37 @@ function App() {
 
   ])
   useEffect(() => {
-    setTodos([
-      setTodos(prev => prev.map(todo => {
-        if (todo.id === 1) return {
-          ...todo,
-          title: '标题一改一'
-        }
-        return todo;
-      }))
-    ])
+    setTimeout(() => {
+      // setTodos(prev => prev.map(todo => {
+      //   if (todo.id === 1) return {
+      //     ...todo,
+      //     title: '标题一改一'
+      //   }
+      //   return todo;
+      // }))
+      // setTodos(prev => [
+      //   ...prev,
+      //   {
+      //     id: 4,
+      //     title: '标题四'
+      //   }
+      // ])
+
+      setTodos(prev => [
+        {
+          id: 4,
+          title: '标题四'
+        },
+        ...prev
+      ])
+    }, 3000)
   }, [])
 
   return (
     <ul>
       {
         todos.map((todo) => (
-          <li >{todo.title}</li>
+          <li key={todo.id}>{todo.title}</li>
         ))
       }
     </ul>
