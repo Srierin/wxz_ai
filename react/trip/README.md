@@ -97,7 +97,41 @@ README.md 很重要 可以方便了解项目
     - 频繁的单位 换算
     - 如何实现自动化 
         postcss + postcss-pxtorem
+        postcss 是css 预编译器，很强大
+        vite 会自动读取postcss.config.js 将css内容编译 
+        插件 postcss-pxtorem  会将px 转换为rem
 ## git 提交规范
+- 项目初始化
+## 功能模块
+- UI 组件库
+    - react-vant  第三方组件库 70%的组件可以直接引用
+    - 选择一个适合业务的UI组件库 或者公司内部的组件库 
+- 配置路由及懒加载
+    - 懒加载
+    - 路由守卫
+    - Layout 布局组件
+        - 嵌套路由Outlet 分组路由配置
+        - 网页有几个模板 Layout
+              - Route 不加path 对应的路由自动选择
+              - tabbar 底部导航栏
+              - blank 空白布局
+              - custom 自定义布局
+              - 。。。
+        - tabbar
+            - react-vant +@react-vant/icons
+            - value + onChange 响应式
+            - 直接点击链接分享 active 的设置
+
+- 自定义hooks
+    - useTitle 保证页面跳转时标题一致（必要！！！）
+
+- es6 特性使用
+    tabbar 的高亮
+    - arr.findIndex
+    - str.startsWith
+    - promise
+
+
 
 
 
