@@ -51,3 +51,13 @@ export const kimiChat = async (message) => {
   )
   return res;
 }
+
+export const generateAvatar = async (text) => {
+  // 设计prompt
+  const prompt = `
+  你是一个二次元头像生成器，需要为用户设计头像，主要是酷炫的，
+  用户信息的${text}
+
+
+  `
+}

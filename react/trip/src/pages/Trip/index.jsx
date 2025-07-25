@@ -71,7 +71,7 @@ const Trip = () => {
         ...prev,
         {
           role: 'user',
-          content: text,
+          content: text
         }
       ]
     })
@@ -84,7 +84,7 @@ const Trip = () => {
     setMessages((prev) => {
       return [
         ...prev,
-        newMessage
+        newMessage.data
       ]
     });
     setIsSending(false);
