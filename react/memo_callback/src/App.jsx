@@ -2,6 +2,7 @@ import {
   useState,
   useEffect,
   useCallback,
+  useMemo // 缓存一个复杂计算的值
 } from 'react'
 import './App.css'
 import Button from './components/Button'
@@ -10,6 +11,16 @@ function App() {
   const [count, setCount] = useState(0)
   const [num, setNum] = useState(0)
   console.log('App render')
+
+  const expensiveComputation = (n) => {
+    console.log('expensiveComputation')
+    // 模拟一个复杂的计算
+    for(let i = 0; i < 1000000000; i++) {
+      i++;
+    }
+    return n * 2
+  }
+  const result = useMemo(()=> expensiveComputation(num), [num])
   useEffect(() => {
     console.log('count', count)
   }, [count])
@@ -25,6 +36,8 @@ function App() {
 
   return (
     <>
+      {/* <div>{expensiveComputation(num)}</div> */}
+      <div>{result}</div>
       <div>{count}</div>
       <button onClick={() => setCount(count + 1)}>+</button>
       <br />

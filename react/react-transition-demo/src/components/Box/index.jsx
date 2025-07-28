@@ -1,0 +1,19 @@
+import {
+  useState,
+} from 'react'
+// css in js  样式隔离
+import styles from './box.module.css'
+
+const Box = () => {
+  const [open, setOpen] = useState(false)
+  return (
+    <div>
+      <button onClick={() => setOpen(!open)}>
+        {open ? 'close' : 'open'}
+      </button>
+      <div className={`${styles.box} ${open ? styles.open : ''} `}></div>
+    </div>
+  )
+}
+
+export default Box
