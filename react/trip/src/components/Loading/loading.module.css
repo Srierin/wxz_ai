@@ -1,0 +1,35 @@
+.wrapper>div {
+  position: fixed; /* static */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: red;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  /* 关键帧动画 */
+  /* animation-name 动画脚本 ... */
+  animation: loading 1s infinite ease-in;
+}
+.wrapper>div:nth-child(2){
+  background-color: blue;
+  animation-delay: -0.8s;
+}
+@keyframes loading{
+  /* 1s 设计多少个动作 */
+  0%,100%{
+    transform: scale(0);
+  }
+  /* 25%{
+    background-color: lightblue;
+  } */
+  50%{
+    transform: scale(1);
+  }
+  /* 75%{
+    background-color: lightgreen;
+  } */
+
+}

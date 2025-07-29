@@ -124,6 +124,11 @@ README.md 很重要 可以方便了解项目
 - chatbot 模块
     - llm 模块 chat 封装
     - 迭代chat，支持任意模型 
+- Search 
+    - 防抖
+    - api 接口
+         Googlesuggest
+    - localStorage 缓存
 ## 项目亮点和难点
 - 前端智能
     - chat 函数
@@ -162,6 +167,13 @@ README.md 很重要 可以方便了解项目
     - 流式输出
     - 上下文 LRU 
     - coze 工作流接口调用 
+
+## 通用组件开发
+- Lading 
+   - 居中方案
+        position: fixed +tlrb 0 + margin:auto
+   - React.memo 无状态组件，不重新渲染
+   - animation 
 
 
 

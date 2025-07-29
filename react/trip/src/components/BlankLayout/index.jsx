@@ -5,7 +5,7 @@ const BlankLayout = () =>{
   return (
     <>
       <Outlet />
-      Blanklayout
+    
     </>
   )
 }
