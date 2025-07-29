@@ -19,12 +19,15 @@ const Collection = lazy(() => import('@/pages/Collection'));
 const Discount = lazy(() => import('@/pages/Discount'));
 const Account = lazy(() => import('@/pages/Account'));
 const Trip = lazy(() => import('@/pages/Trip'));
+const Detail = lazy(() => import('@/pages/Detail'));
+
+
 function App() {
 
 
   return (
     <>
-      <Loading />
+      {/* 路由 */}
       <Suspense fallback={<Loading />}>
         {/* 带有tabbar的Layout */}
         <Routes>
@@ -41,6 +44,7 @@ function App() {
         <Routes>
           <Route element={<BlankLayout />}>
             <Route path="/search" element={<Search />} />
+            <Route path="/detail/:id" element={<Detail />} />
           </Route>
         </Routes>
       </Suspense>
