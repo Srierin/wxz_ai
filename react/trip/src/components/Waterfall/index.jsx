@@ -15,13 +15,15 @@ const Waterfall = (props) => {
   useEffect(() => {
     // 判断ref 出现这视窗了 intersectionObserver
     // 观察者模式 
-    const observer = new IntersectionObserver(([entry]) => {
+    const observer = new IntersectionObserver(([entry],obs) => {
       console.log(entry);
       if (entry.isIntersecting) {
         fetchMore();
       }
+      // obs.unobserve(entry.target);
     })
     if (loader.current) observer.observe(loader.current) // 监听loader
+    return () => observer.disconnect(); 
   }, [])
 
   return (
