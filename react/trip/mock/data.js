@@ -1,5 +1,15 @@
 import Mock from 'mockjs'
 
+// 每页10条数据
+const getImages = (page, pageSize = 10) => {
+  return Array.from({ length: pageSize }, (_, i) => ({
+    // 索引唯一
+    id: `${page}-${i}`,
+    height: Mock.Random.integer(300, 600), // 随机生成高度
+    url: Mock.Random.image('300x400', Mock.Random.color(), '#FFF', 'png'), // 随机生成图片 URL
+  }))
+}
+
 export default [{
   url: '/api/search',
   method: 'get',
@@ -49,10 +59,10 @@ export default [{
   }
 },
 {
-  url:'/api/detail/:id',
-  method:'get',
-  timeout:1000,
-  response:(req,res)=>{
+  url: '/api/detail/:id',
+  method: 'get',
+  timeout: 1000,
+  response: (req, res) => {
     const randomData = Mock.mock({
       title: '@ctitle(5,10)', // 随机生成标题
       price: '@integer(100, 1000)', // 随机生成价格
@@ -74,8 +84,21 @@ export default [{
     })
 
     return {
-      code:0,
-      data:randomData,
+      code: 0,
+      data: randomData,
+    }
+  }
+},
+{
+  // ?page=1 queryString
+  url: '/api/images',
+  method: 'get',
+  timeout: 1000,
+  response: ({ query }) => {
+    const page = Number(query.page) || 1; // 默认为第1页
+    return {
+      code: 0,
+      data: getImages(page) // 调用函数获取图片数据
     }
   }
 }

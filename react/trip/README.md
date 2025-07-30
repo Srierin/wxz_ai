@@ -129,6 +129,21 @@ README.md 很重要 可以方便了解项目
     - api 接口
          Googlesuggest
     - localStorage 缓存
+- 瀑布流
+    - 小红书等主流App的内容浏览用户体验产品
+         两列、图片高度不一致错开、落差感
+         滚动加载更多，图片懒加载
+    - 接口
+        /api/images?page=${n} 支持翻页
+        唯一id 通过 page + index 完成
+        随机图片，高度随机
+    - images 怎么放到两列中？ MVVM
+    数据驱动界面 (2列) 奇偶
+    - 加载更多 通过位于底部的loading 组件 通过使用 IntersectionObserver 
+    观察元素是否在视窗内，性能更好，使用了观察者模式
+    - key 唯一id 保证不会重复渲染  还有下拉刷新的用户体验可以优化
+    
+
 ## 项目亮点和难点
 - 前端智能
     - chat 函数
@@ -167,6 +182,9 @@ README.md 很重要 可以方便了解项目
     - arr.findIndex
     - str.startsWith
     - promise
+    瀑布流随机数据生成   
+    - Array.from({length:pageSize},(_,index)=>({
+    }))
 
 - 项目迭代
     - 功能由浅入深
