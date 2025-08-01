@@ -182,6 +182,34 @@ README.md 很重要 可以方便了解项目
     - 热门推荐 + 相关商品 （产品）
     - SPA
     - 骨架屏 skeleton 不用让用户等待
+    - 文件上传的priview 预览 用到的是html5的fileReader
+- 智能生成图片
+    - 产品
+     根据宠物图片，智能生成图片
+    - 商业价值
+    技术服务
+    coze 工作流 可以让智能编排AI 流程 编程的一种方式
+    - api调用
+
+  - 设计工作流
+      - 创建工作流 ani_pic
+         功能：上传宠物照片，生成宠物冰球运动员照片
+      - 代码节点
+         参数校验和逻辑功能，返回运行的结果
+      - 图片生成流程
+          - 图片理解插件  背后就是计算机视觉
+          - 大模型 特征提取
+          prompt
+  - workflow_id 7533587682115485731
+  - token pat_FA3SLeQ45L4rSfMH6xwRuvHvkrcdlJVcMRwJqjhqmXS8H5k6W5djbHq7862xhqAi
+  - coze 的图片要先上传到coze中
+       uploadUrl + token + new FormData()
+       append(file)
+       拿到file_id 才能调用图片生成接口
+  - workflowUrl + workflow_id + token
+       上传工作流需要的参数 
+  
+     
 ## 项目遇到过什么问题，怎么解决的
 - chat messages 遇到message 覆盖问题 
 - 闭包陷阱问题
