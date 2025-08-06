@@ -208,7 +208,12 @@ README.md 很重要 可以方便了解项目
        拿到file_id 才能调用图片生成接口
   - workflowUrl + workflow_id + token
        上传工作流需要的参数 
-  
+- 语言输入发表文章
+    - 字节的 tts
+    - onMouseDown
+    - BOM html5
+    navigator.mediaDevices.getUserMedia({audio:true})
+    用户的隐私，要授权 getLocation
      
 ## 项目遇到过什么问题，怎么解决的
 - chat messages 遇到message 覆盖问题 
@@ -249,3 +254,5 @@ README.md 很重要 可以方便了解项目
 
 
 
+- AI 功能
+     智能前端(http 请求) + 工作流+ coze api  全新工作
