@@ -19,7 +19,7 @@ const Coze = () => {
   const [style, setStyle] = useState('写实');
   const [imgUrl, setImgUrl] = useState('');
   const [status, setStatus] = useState('');
-
+ 
   const updateImageData = () => {
     const input = uploadImageRef.current;
     // console.log(uploadImageRef.current)
