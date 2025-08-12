@@ -1,4 +1,4 @@
-import {
+import { 
   useState,
   useRef,
   useEffect
@@ -6,7 +6,7 @@ import {
 import Progress from './components/Progress';
 import AudioPlayer from './components/AudioPlayer';
 import {
-  SPEAKERS,
+  SPEAKERS, 
   DEFAULT_SPEAKER
 } from './constants'
 
@@ -31,21 +31,15 @@ function App() {
     worker.current = new Worker(new URL('./worker.js', import.meta.url), {
       type: 'module'
     })
-    // worker.current.postMessage({
-    //   text: '灵不灵，奔驰s680'
-    // })
 
     const onMessageReceived = (e) => {
-      console.log(e, '来自主线程');
-      switch (e.data.status) {
+      // console.log(e, '来自主线程');
+      switch(e.data.status) {
         case 'initiate':
-          // llm ready 了吗
+          // llm ready 了吗？
           setReady(false);
           setProgressItems(prev => [...prev, e.data])
-          break;
-        case 'download':
-          setProgressItems(prev => [...prev, e.data])
-          break;
+        break;
         case 'progress':
           // console.log(e.data)
           setProgressItems(
@@ -56,23 +50,29 @@ function App() {
                   progress: e.data.progress
                 }
               }
-              return item;
+              return item
             })
           )
-          break;
+        break;
         case 'done':
-          setProgressItems(
-            prev => prev.filter(item => item.file !== e.data.file)
-          )
-          break;
-          case 'ready':
-            setReady(true);
-            break;
+        setProgressItems(
+          prev => prev.filter(item => item.file !== e.data.file)
+        )
+        break;
+        case 'ready':
+          setReady(true);
+        break;
+        case 'complete':
+          setDisabled(false);
+          const blobUrl = URL.createObjectURL(e.data.output);
+          // console.log(blobUrl);
+          setOutput(blobUrl);
+        break;
       }
     }
     worker.current.onmessage = onMessageReceived;
 
-    return () => worker.current.removeEventListener('message',
+    return () => worker.current.removeEventListener('message', 
       onMessageReceived
     )
   }, [])
@@ -90,15 +90,15 @@ function App() {
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100">
       {/* llm 初始化 */}
-      <div
-        className="absolute z-50 top-0 left-0 w-full h-full transition-all 
-       px-8 flex flex-col justify-center text-center"
-        style={{
-          opacity: isLoading ? 1 : 0,
-          pointerEvents: isLoading ? 'all' : 'none',
-          background: 'rgba(0,0,0,0.9)',
-          backdropFilter: 'blur(8px)',
-        }}
+      <div 
+      className="absolute z-50 top-0 left-0 w-full h-full transition-all 
+      px-8 flex flex-col justify-center text-center"
+      style={{
+        opacity: isLoading? 1 : 0,
+        pointerEvents: isLoading? 'all': 'none',
+        background: 'rgba(0,0,0,0.9)',
+        backdropFilter: 'blur(8px)'
+      }}
       >
         {
           isLoading && (
@@ -110,11 +110,10 @@ function App() {
         {
           progressItems.map(data => (
             <div key={`${data.name}/${data.file}`}>
-              <Progress
-                text={`${data.name}/${data.file}`}
+              <Progress 
+                text={`${data.name}/${data.file}`} 
                 percentage={data.progress}
-
-              />
+              /> 
             </div>
           ))
         }
@@ -141,41 +140,41 @@ function App() {
           </textarea>
         </div>
         <div className="mb-4">
-          <label
-            htmlFor="speaker"
+          <label 
+            htmlFor="speaker" 
             className="block text-sm font-medium text-gray-600"
           >
           </label>
-          <select
+          <select 
             id="speaker"
             className="border border-gray-300 rounded-md p-2 w-full"
             value={selectedSpeaker}
-            onChange={(e) => setSelectedSpeaker(e.target.value)}
+            onChange={(e)=>setSelectedSpeaker(e.target.value)}
           >
-            {
-              // 可迭代对象快速转换成数组 [[key:val],[key1:value1],[key2:value1]]
-              Object.entries(SPEAKERS).map(([key, value]) => (
-                <option key={key} value={value}>
-                  {key}
-                </option>
-              ))
-            }
+          {
+            // 可迭代对象快速转换成数组 [[key:val],[key1:value1],[key2:value1]]
+            Object.entries(SPEAKERS).map(([key, value]) => (
+              <option key={key} value={value}>
+                {key}
+              </option>
+            ))
+          }
           </select>
         </div>
         <div className="flex justify-center">
           <button
-            className={`${disabled ?
-              'bg-gray-400 cursor-not-allowed' :
+            className={`${disabled? 
+              'bg-gray-400 cursor-not-allowed':
               'bg-blue-500 hover-bg-blue-600'
-              } text-white rouned-md py-2 px-4`}
+            } text-white rouned-md py-2 px-4`}
             onClick={handleGenerateSpeech}
             disabled={disabled}
           >
-            {disabled ? 'Generating...' : 'Generate'}
+            {disabled? 'Generating...': 'Generate'}
           </button>
         </div>
         {
-          output && <AudioPlayer
+          output && <AudioPlayer 
             audioUrl={output}
             mimeType={"audio/wav"}
           />
@@ -185,4 +184,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
