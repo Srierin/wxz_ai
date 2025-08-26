@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  padding: 20px;
+  border: 10px solid #000;
+  background: lightblue;
+  z-index: 10;
+}
+
+.absolute-box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  /* bottom: 0px;
+  right:0px; */
+  width: 50px;
+  height: 50px;
+  background: red;
+  /* margin:auto; */
+  z-index: -10;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="absolute-box"></div>
+  </div>
+  <!-- <div style="background: #eee; padding: 10px;">
+    <div style="width: 100px; height: 50px; background: red;"></div>
+    <div style="position: absolute; top: 0px; left: 0px; width: 100px; height: 50px; background: blue;"></div>
+    <div style="width: 100px; height: 50px; background: green;"></div>
+  </div> -->
+  
+   
+</body>
+
+</html>
